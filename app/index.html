@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To do</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+        
+        body {
+            background-color: #ADC5D9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 650px;
+        }
+        
+        .dashboard-container {
+            background-color: #1e2027;
+            height: 600px;
+            width: 1000px;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: row;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dashboard-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            width: 36%;
+            min-width: 324px;
+            padding: 25px;
+            background-color: #303440;
+        }
+        
+        .dashboard-right {
+            position: relative;
+            height: 100%;
+            flex: 1;
+        }
+        
+        .left-header h3 {
+            color: #f0f0f0;
+            font-size: 1.5em;
+        }
+        
+        .left-task {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .task-input {
+            padding: 12px 15px;
+            background-color: #1e2027;
+            font-family: inherit;
+            border: none;
+            border-radius: 2px;
+            color: #b8b8b8;
+            margin-bottom: 0.5em;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        .task-input:focus {
+            transition: all 0.4s ease-in-out;
+            background-color: #fff;
+            color: #303440;
+        }
+        
+        .task-label {
+            color: #dfdfdf;
+            font-family: inherit;
+            font-size: 0.8em;
+            margin-bottom: 0.3em;
+        }
+        
+        .task-item {
+            margin: 1em 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .task-add {
+            padding: 10px;
+            outline: none;
+            background: #F4F2F4;
+            font-family: inherit;
+            border: none;
+            font-size: 0.9em;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        
+        .task-add:hover {
+            background-color: #BEBFC2;
+        }
+        
+        .right-list {
+            padding: 20px;
+            height: 100%;
+            overflow: scroll;
+        }
+        
+        .right-list::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .right-list h3 {
+            color: #F4F2F4;
+            margin-bottom: 1em;
+            font-size: 1em;
+        }
+        
+        .list-flex {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .list-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            background-color: #303440;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.85em;
+            color: #fff;
+            transition: all 0.4s ease-in-out;
+            ;
+        }
+        
+        .list-item:hover {
+            background-color: #393e4d;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        .list-item-type {
+            padding: 3px 11px;
+            border-radius: 100px;
+            color: #303440;
+            font-size: 0.84em;
+        }
+        
+        .list-item-date {
+            padding: 0;
+        }
+        
+        .list-item-date-gone {
+            color: #f76969;
+        }
+        
+        .list-item-value {
+            width: 200px;
+        }
+        
+        .list-item-remove {
+            display: flex;
+        }
+        
+        .list-item-remove img {
+            height: 20px;
+            width: 30px;
+        }
+        
+        .list-item-remove img:hover {
+            cursor: pointer;
+        }
+        
+        .filter-btn-group button {
+            float: right;
+            padding: 5px;
+            margin-left: auto;
+            outline: none;
+            background: #d8d9db;
+            font-family: inherit;
+            font-size: 0.9em;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .filter-btn-group button:hover {
+            background-color: #F4F2F4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-left">
+            <div class="left-header">
+                <h3>Create a task!</h3>
+            </div>
+            <div class="left-task">
+                <!--  -->
+                <form class="task-info task-item">
+                    <label for="" class="task-label">Task (required)</label>
+                    <input type="text" class="task-info-input task-input" placeholder='Go to the gym...'>
+                    <label for="" class="task-label">Description</label>
+                    <input type="text" class="task-type-input task-input" placeholder="Health, Education..">
+                    <label for="" class="task-label">Deadline</label>
+                    <input type="date" class="task-date-input task-input" aria-placeholder=""></input>
+                    <button class="task-add">Add Task</button>
+                </form>
+                <!--  -->
+            </div>
+
+        </div>
+        <div class="dashboard-right">
+            <div class="right-list">
+                <h3 class="right-list-h3"></h3>
+
+                <div class="list-flex">
+                    <!--  -->
+                    <div class="list-item">
+                        <span class="list-item-checkbox"></span>
+                        <span class="list-item-value"></span>
+                        <span class="list-item-type"></span>
+                        <span class="list-item-date"></span>
+                        <span class="list-item-remove"></span>
+                    </div>
+
+                    <!--  -->
+                </div>
+                <div class="filter-btn-group">
+                    <button class="incompleted">uncomplated</button>
+                    <button class="all">all</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
