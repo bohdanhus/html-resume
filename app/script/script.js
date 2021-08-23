@@ -39,11 +39,10 @@ function showIncompleted() {
     let localData = localStorage.getItem("slate");
     if (localData) {
         slate = JSON.parse(localStorage.getItem("slate"));
-        if (slate.length == 0) {
+        let newSlate = slate.filter(el => el.done === false);
+        if (newSlate.length == 0) {
             listHdr.innerHTML = "Add a task to begin.";
         } else {
-            let newSlate = slate.filter(el => el.done === false);
-            resetPlaceholder()
             newSlate.forEach((element, index) => {
                 createList(element, index);
             });
@@ -54,7 +53,7 @@ function showIncompleted() {
 function createItem() {
     const inputValue = input.value,
         inputDecription = description.value,
-        inputDeadline = due_date.value,
+        inputDeadline = new Date(due_date.value).toLocaleDateString(),
         typeColor = typeBC[Math.floor(Math.random() * typeBC.length)];
     if (inputValue === "" || inputDecription === "") {
         return alert("Empty title!");
@@ -116,6 +115,7 @@ function createList(el, indx) {
         } else {
             valueDiv.style.color = '#b8b8b8';
             valueDiv.style.textDecoration = 'none';
+            valueDiv.innerHTML = `${el.value}, незабудь!`
         }
         el.done = !el.done
         localStorage.setItem("slate", JSON.stringify(slate));
