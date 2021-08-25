@@ -83,7 +83,7 @@ function createItem() {
         inputDecription = description.value,
         inputDeadline = due_date.value ? new Date(due_date.value).toLocaleDateString() : "without date",
         typeColor = typeBC[Math.floor(Math.random() * typeBC.length)];
-    if (inputValue === "" || inputDecription === "") {
+    if (inputValue === "" /*|| inputDecription === ""*/) {
         return alert("Empty title!");
     }
     console.log(inputDeadline)
@@ -142,7 +142,6 @@ function setDoneState() {
     let div = this.parentNode;
     let checkbox = div.children[0]
     let title = div.children[1];
-
     if (checkbox.checked) {
         title.style.color = '#505050';
         title.style.textDecoration = 'line-through';
@@ -187,10 +186,15 @@ function createRemoveDiv(removeDiv) {
 }
 
 function printDescDiv(item, el) {
-    item.classList.add("list-item-type");
-    item.style.backgroundColor = el.labelColor;
-    item.style.color = '#242323';
-    item.textContent = `${el.description}`;
+    if (el.description === "") {
+        item.style.display = `none`
+    } else if (el.description !== "") {
+        item.style.display = `flex`
+        item.classList.add("list-item-type");
+        item.style.backgroundColor = el.labelColor;
+        item.style.color = '#242323';
+        item.textContent = `${el.description}`;
+    }
 }
 
 function createDateDiv(item, el) {
