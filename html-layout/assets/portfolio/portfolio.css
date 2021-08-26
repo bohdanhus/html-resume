@@ -1,0 +1,99 @@
+/* portfolio */
+
+@media (min-width: 300px) {
+    /*.portfolio {*/
+    /*    width: 100%;*/
+    /*    height: 404px;*/
+    /*    text-align: center;*/
+    /*    padding-left: 34px;*/
+    /*    padding-right: 33px;*/
+    /*    background: #FFFFFF;*/
+    /*}*/
+    /*.images {*/
+    /*    width: 308px;*/
+    /*    height: 220px;*/
+    /*    display: flex;*/
+    /*    flex-wrap: wrap;*/
+    /*    flex-direction: column;*/
+    /*}*/
+    /*.portfolio h2 {*/
+    /*    width: 101px;*/
+    /*    padding-left: 104px;*/
+    /*    padding-top: 25px;*/
+    /*    padding-bottom: 19px;*/
+    /*    color: #333333;*/
+    /*}*/
+    /*.portfolio p.heading {*/
+    /*    font-size: 14px;*/
+    /*    font-weight: 500;*/
+    /*    height: 25px;*/
+    /*    color: #333333;*/
+    /*    padding-bottom: 15px;*/
+    /*}*/
+    /*.portfolio p {*/
+    /*    width: 308px;*/
+    /*    height: 71px;*/
+    /*    font-weight: 400;*/
+    /*    font-size: 12px;*/
+    /*    line-height: 15px;*/
+    /*}*/
+    /*.img1 {*/
+    /*    width: 169px;*/
+    /*    height: 69px;*/
+    /*    padding-bottom: 13px;*/
+    /*    padding-right: 14px;*/
+    /*}*/
+    /*.img2 {*/
+    /*    width: 124px;*/
+    /*    height: 113px;*/
+    /*    padding-right: 15px;*/
+    /*}*/
+    /*.img3 {*/
+    /*    width: 169px;*/
+    /*    height: 113px;*/
+    /*}*/
+    /*.img4 {*/
+    /*    padding-top: 12px;*/
+    /*    width: 123px;*/
+    /*    height: 70px;*/
+    /*}*/
+}
+
+@media (min-width: 600px) {
+    .portfolio {
+        width: 100%;
+        height: 832px;
+        background: #FFFFFF;
+    }
+    .portfolio h2 {
+        color: #333333;
+        padding-top: 93px;
+        margin-bottom: 86px;
+        margin-left: 166px;
+    }
+    .portfolio-content {
+        display: flex;
+        margin-left: 166px;
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .heading {
+        color: #333333;
+        font-size: 18px;
+        font-weight: 600;
+        margin-left: 166px;
+        margin-bottom: 48px;
+    }
+    .images {
+        display: flex;
+        padding: 0;
+        margin: 0;
+    }
+    .text {
+        padding-right: 65px;
+        max-width: 30%;
+    }
+    .image-column {
+        flex-direction: column;
+    }
+}

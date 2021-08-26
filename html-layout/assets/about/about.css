@@ -1,0 +1,56 @@
+/* about */
+
+.about {
+    background: #FFFFFF;
+}
+
+.about h2 {
+    color: #333333;
+}
+
+.about-text {
+    color: #333333;
+    font-style: normal;
+    font-weight: 400;
+    text-align: justify;
+}
+
+@media (min-width: 300px) {
+    .about {
+        width: 375px;
+        height: 335px;
+    }
+    .about h2 {
+        text-align: center;
+        padding-top: 25px;
+    }
+    .about-text {
+        padding: 19px 29px 8px 34px;
+        width: 312px;
+        height: 212px;
+        font-size: 11px;
+        word-spacing: 3px;
+        line-height: 15px;
+    }
+    @media (min-width: 1024px) {
+        .about {
+            width: 100%;
+            height: 544px;
+        }
+        .about h2 {
+            text-align: start;
+            padding-top: 93px;
+            padding-left: 165px;
+            font-weight: 600;
+        }
+        .about-text {
+            margin: 76px 115px 160px 166px;
+            padding: 0 0 0 0;
+            width: 1107px;
+            height: 231px;
+            font-size: 18px;
+            word-spacing: 1px;
+            line-height: 167%;
+        }
+    }
+}

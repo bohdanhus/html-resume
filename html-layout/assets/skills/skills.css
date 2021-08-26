@@ -1,0 +1,169 @@
+/* skills */
+
+.skills h2 {
+    color: #333333;
+}
+
+.skills {
+    background-color: #fffaf2;
+}
+
+@media (min-width: 300px) {
+    .skills-container-desktop {
+        display: none;
+    }
+    .skills p {
+        font-weight: 400;
+    }
+    .skills {
+        width: 375px;
+        height: 617px;
+        padding-top: -25px;
+    }
+    /*над заголовком незватает кусочка бэкграунда*/
+    .skills-container {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 34px;
+        padding-right: 32px;
+        padding-bottom: 35px;
+    }
+    .skills-container-mobile {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 34px;
+        padding-right: 32px;
+    }
+    .skills img {
+        width: 224px;
+        height: 218px;
+        padding: 25px 80px 26px 71px;
+    }
+    .skills-container-mobile ul {
+        list-style-type: none;
+    }
+    /*UI / UX Engineer, Front-end Developer выступает за рамки прогресбара*/
+    .right li:nth-child(odd) {
+        margin-bottom: 12px;
+    }
+    .right li:nth-child(even) {
+        line-height: 25px;
+        margin-bottom: 22px;
+    }
+    .left li:nth-child(odd) {
+        margin-bottom: 12px;
+    }
+    .left li:nth-child(even) {
+        margin-bottom: 18px;
+    }
+    progress {
+        width: 211px;
+        height: 18px;
+        position: relative;
+        border: none;
+        color: #c66c49;
+        background: #f5d6ab;
+    }
+    .left p {
+        margin-bottom: 12px;
+    }
+    .right p {
+        padding-bottom: 0;
+    }
+    progress::-moz-progress-bar {
+        background: #c66c49;
+    }
+    progress::-webkit-progress-value {
+        background: #c66c49;
+    }
+}
+
+@media (min-width: 600px) {
+    .skills-container-mobile {
+        display: none;
+    }
+    .skills p {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .skills {
+        font-style: normal;
+        width: 100%;
+        height: 693px;
+        padding-top: 0;
+    }
+    .skills h2 {
+        font-weight: 600;
+        padding-left: 165px;
+        padding-top: 93px;
+        padding-bottom: 86px;
+    }
+    .skills img {
+        position: absolute;
+        width: 350px;
+        height: 340px;
+        padding: 0;
+        margin: 0 208px 125px 165px;
+    }
+    .skills-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding-bottom: 65px;
+        padding-left: 440px;
+    }
+    strong {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .skills strong {
+        padding-right: 68px;
+    }
+    .skills-container strong {
+        padding-right: 131px;
+    }
+    .skills-container-desktop {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        margin-left: 46%;
+    }
+    .skills-container-desktop ul {
+        list-style-type: none;
+    }
+    .right li:nth-child(odd) {
+        margin-bottom: 20px;
+    }
+    .right li:nth-child(even) {
+        margin-bottom: 21px;
+    }
+    .left li:nth-child(odd) {
+        margin-bottom: 20px;
+    }
+    .left li:nth-child(even) {
+        margin-bottom: 20px;
+    }
+    progress {
+        width: 446px;
+        height: 24px;
+        position: relative;
+        border: none;
+        color: #f5d6ab;
+        background: #f5d6ab;
+    }
+    .left p {
+        margin-bottom: 20px;
+    }
+    .right p {
+        padding-bottom: 0;
+        flex-wrap: nowrap;
+    }
+    progress::-moz-progress-bar {
+        background: #c66c49;
+    }
+    progress::-webkit-progress-value {
+        background: #c66c49;
+    }
+}

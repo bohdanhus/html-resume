@@ -1,0 +1,48 @@
+/* footer */
+footer {
+    background-color: #fffaf2;
+    position: absolute;
+    width: 375px;
+    height: 360px;
+    left: -1px;
+
+}
+
+.footer h2 {
+    color: #333333;
+    padding-top: 26px;
+    padding-bottom: 26px;
+}
+
+
+.container {
+    padding-left: 42px;
+}
+
+.container p {
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    line-height: 17px;
+    color: #333333;
+}
+
+.child {
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+
+@media (min-width: 600px) {
+}
+
+}
