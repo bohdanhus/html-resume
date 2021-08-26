@@ -10,12 +10,13 @@ const check = document.querySelector(".list-item-checkbox");
 const listValue = document.querySelector(".list-item-value");
 
 let typeBC = ["#ffecb5", "#e2bbff", "#b6ffee", "#ffb4c0", "#bbfaff"];
+let unfilliedSlate = []
 let slate = [];
 let inc = (init = 0) => () => ++init;
 let genId = inc();
 
 addButton.addEventListener("click", createItem);
-showIncompletedButton.addEventListener("click", showIncompleted);
+showIncompletedButton.addEventListener("click", showUnfulfilled);
 showAllButton.addEventListener("click", showAll);
 
 function showAll() {
@@ -35,17 +36,20 @@ function render() {
     }
 }
 
-function showIncompleted() {
+function showUnfulfilled() {
     let localData = localStorage.getItem("slate");
     if (localData) {
-        slate = JSON.parse(localStorage.getItem("slate"));
-        let newSlate = slate.filter(el => el.done === false);
-        if (newSlate.length == 0) {
+        slate = JSON.parse(localStorage.getItem("slate"))
+        ;
+        if (slate.length == 0) {
             listHdr.innerHTML = "Add a task to begin.";
         } else {
-            newSlate.forEach((element, index) => {
-                createList(element, index);
-            });
+            resetPlaceholder()
+            slate.forEach((element,index) => {
+                if (!element.done) {
+                    createList(element, index);
+                }
+            })
         }
     }
 }
@@ -53,11 +57,12 @@ function showIncompleted() {
 function createItem() {
     const inputValue = input.value,
         inputDecription = description.value,
-        inputDeadline = new Date(due_date.value).toLocaleDateString(),
+        inputDeadline = due_date.value ? new Date(due_date.value).toLocaleDateString() : "without date",
         typeColor = typeBC[Math.floor(Math.random() * typeBC.length)];
-    if (inputValue === "" || inputDecription === "") {
+    if (inputValue === "") {
         return alert("Empty title!");
     }
+    
     const item = {
         id: genId(),
         value: inputValue,
@@ -86,36 +91,35 @@ function maker() {
 
 function createList(el, indx) {
     const itemlabel = document.createElement("label"),
-        completedButton = document.createElement('input'),
-        valueDiv = document.createElement("div"),
-        typeDiv = document.createElement("div"),
+    checkbox = document.createElement('input'),
+    titleDiv = document.createElement("div"),
+    descDiv = document.createElement("div"),
         dateDiv = document.createElement("div"),
         removeDiv = document.createElement("div");
 
     itemlabel.classList.add("list-item");
+    todoList.appendChild(itemlabel);
+    createCheckboxItem(checkbox, el.done);
+    itemlabel.appendChild(checkbox);
+    createItemValue(titleDiv, el.value, el.done)
+    itemlabel.appendChild(titleDiv);
+    createDescriptionItem(descDiv, el.description, el.labelColor);
+    itemlabel.appendChild(descDiv);
+    createDateItem(dateDiv, el.deadline);
+    itemlabel.appendChild(dateDiv);
+    createRemoveItem(removeDiv);
+    itemlabel.appendChild(removeDiv);
 
-    createCheckboxItem(completedButton, el.done);
-    createItemValue(valueDiv, el.value, el.done)
-    createRemoveItem(removeDiv)
-    createDescriptionItem(typeDiv, el.description, el.labelColor)
-    createDateItem(dateDiv, el.deadline)
-
-    todoList.append(itemlabel);
-    itemlabel.append(completedButton);
-    itemlabel.append(valueDiv)
-    itemlabel.append(typeDiv);
-    itemlabel.append(dateDiv)
-    itemlabel.append(removeDiv);
     localStorage.setItem("slate", JSON.stringify(slate));
 
-    completedButton.addEventListener('click', () => {
-        if (completedButton.checked) {
-            valueDiv.style.color = '#505050';
-            valueDiv.style.textDecoration = 'line-through';
+    checkbox.addEventListener('click', () => {
+        if (checkbox.checked) {
+            titleDiv.style.color = '#505050';
+            titleDiv.style.textDecoration = 'line-through';
         } else {
-            valueDiv.style.color = '#b8b8b8';
-            valueDiv.style.textDecoration = 'none';
-            valueDiv.innerHTML = `${el.value}, незабудь!`
+            titleDiv.style.color = '#b8b8b8';
+            titleDiv.style.textDecoration = 'none';
+            titleDiv.innerHTML = `${el.value}, незабудь!`
         }
         el.done = !el.done
         localStorage.setItem("slate", JSON.stringify(slate));

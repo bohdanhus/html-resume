@@ -1,18 +1,18 @@
-const items = [
-    { shape: 'square', color:'green' },
-    { shape: 'square', color: 'green'},
-    { shape: 'square', color: 'blue'}, 
-    { shape: 'square', color:'red' },
-    { shape: 'square', color:'red'},
-    { shape: 'rectangle', color: 'red', weigh: 10, height: 15},
-    { shape: 'square', color: 'black', weigh: 10, height: 10}, 
-    { shape: 'square', color:'black', weigh: 10, height: 10 },
-    { shape: 'rectangle', color:'red', weigh: 10, height: 15},
-    { shape: 'rectangle', color: 'red', weigh: 10, height: 15},
-    { shape: 'square', color: 'black', weigh: 10, height: 10}, 
-    { shape: 'rectangle', color:'red', weigh: 10, height: 15 },
-    { shape: 'square', color:'black', weigh: 10, height: 10}
-];
+// const items = [
+//     { shape: 'square', color:'green' },
+//     { shape: 'square', color: 'green'},
+//     { shape: 'square', color: 'blue'}, 
+//     { shape: 'square', color:'red' },
+//     { shape: 'square', color:'red'},
+//     { shape: 'rectangle', color: 'red', weigh: 10, height: 15},
+//     { shape: 'square', color: 'black', weigh: 10, height: 10}, 
+//     { shape: 'square', color:'black', weigh: 10, height: 10 },
+//     { shape: 'rectangle', color:'red', weigh: 10, height: 15},
+//     { shape: 'rectangle', color: 'red', weigh: 10, height: 15},
+//     { shape: 'square', color: 'black', weigh: 10, height: 10}, 
+//     { shape: 'rectangle', color:'red', weigh: 10, height: 15 },
+//     { shape: 'square', color:'black', weigh: 10, height: 10}
+// ];
 //                                                               Определения цвета фигуры
 
 // function hasColor(color) {
@@ -133,12 +133,27 @@ console.log(calcMaxBlackSquareArea(items));
 
 //                                                                  Суммы периметров всех красных прямоугольников
 
-
+const items = [
+    { shape: 'square', color:'green' },
+    { shape: 'square', color: 'green'},
+    { shape: 'square', color: 'blue'}, 
+    { shape: 'square', color:'red' },
+    { shape: 'square', color:'red'},
+    { shape: 'rectangle', color: 'red', weigh: 10, height: 15},
+    { shape: 'square', color: 'black', weigh: 10, height: 10}, 
+    { shape: 'square', color:'black', weigh: 10, height: 10 },
+    { shape: 'rectangle', color:'red', weigh: 10, height: 15},
+    { shape: 'rectangle', color: 'red', weigh: 10, height: 15},
+    { shape: 'square', color: 'black', weigh: 10, height: 10}, 
+    { shape: 'rectangle', color:'red', weigh: 10, height: 15 },
+    { shape: 'square', color:'black', weigh: 10, height: 10}
+];
 const and = (condition1, condition2) => obj => condition1(obj) && condition2(obj);
 const isRed = hasColor('red')
 const isReqtangles = ({ weigh, height }) => weigh > height || weigh < height;
 const calcPerimeter = ({ weigh, height }) => weigh + height;
 const calcSum = (max, curr) => max + curr;
+
 const calcSummAllRedReqtangles = flow(
     filter(and(isRed, isReqtangles)),
     map(calcPerimeter), 
