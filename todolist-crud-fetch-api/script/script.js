@@ -164,10 +164,8 @@ async function showAll() {
     .then((res) => (slate = res))
     .then(() => render());
 }
-
 async function deleteTodo() {
   let div = this.parentNode;
-
   return await getItemFromServer(div.id).then((todo) => {
     return fetch(URL + `/` + div.id, {
       method: "DELETE",
@@ -178,19 +176,17 @@ async function deleteTodo() {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-    .then((res) => res.json())
-    .then((task) => {
-      if (res.ok) {
-        const task = slate.find((task) => task.id === id);
+      .then((res) => res.json())
+      .then((task) => {
+        // const task = slate.find((task) => task.id === id);
         if (task !== -1) {
           slate.splice(task, 1);
         }
-      }
-    })
-})
+      });
+  });
+}
 
 async function setDoneState() {
-  let div = this.parentNode;
   return await getItemFromServer(div.id)
     .then((todo) => {
       return fetch(URL + `/` + div.id, {
@@ -205,7 +201,7 @@ async function setDoneState() {
     })
     .then((todo) => todo.json())
     .then((todo) => {
-      div.parentElement.replaceChild(todo, div);
+      div.parentElement.replaceChild(createSingleTodo(todo), div);
     });
 }
 function getItemFromServer(id) {
